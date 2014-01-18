@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+	{% load staticfiles %}
+	{% load workouts_filters %}
+	<meta charset="utf-8">
+    <title>Rep Recorder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Populate this section -->
+    <!-- End icons -->
+
+	<!-- Load jquery and highcharts -->
+	<script src="{% static 'fitness/js/jquery-1.9.1.js' %}"></script>
+	<script src="{% static 'fitness/js/jquery-ui-1.10.3.custom.js' %}"></script>
+	<script src="{% static 'fitness/js/highcharts.js' %}"></script>
+	<script src="{% static 'fitness/js/highcharts-more.js' %}"></script>
+
+	<!-- Load stylesheets -->
+	<link rel="stylesheet" href="{% static 'fitness/css/jquery-ui.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'fitness/css/style.css' %}" />
+
+
+
+	<!-- Bootstrap Files -->
+	<script src="{% static 'fitness/js/bootstrap.min.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'fitness/css/bootstrap.css' %}" />
+	<!-- End Bootstrap Files -->
+
+
+	<!-- Custom Javascript functions -->
+	<script type="text/javascript">
+		function Toggle(expanded, collapsed) {
+			var e = document.getElementById(expanded);
+			var c = document.getElementById(collapsed);
+			if(e.style.display == 'block') {
+				e.style.display = 'none';
+				c.style.display = 'block';
+			} else {
+				e.style.display = 'block';
+				c.style.display = 'none';
+			}
+		}
+	</script>
+	<!-- End JS Functions -->

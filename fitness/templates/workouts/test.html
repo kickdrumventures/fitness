@@ -1,0 +1,24 @@
+{% include 'workouts/common/wrapper_header.html' %}
+{% include 'workouts/common/header.html' %}
+{% load staticfiles %}
+<!-- Begin Page Content -->
+
+<!-- Test new content here -->
+
+<h2>This is the test page</h2>
+
+<div id='edit-menu-wrapper'>
+	<div id='edit-menu-expanded'>
+		<a href="#" onclick="Toggle('edit-menu-expanded', 'edit-menu-collapsed')"><div id="edit-menu-button-contract" class="edit-menu-icon"></div></a>
+		<div id="edit-menu-button-delete" class="edit-menu-icon"></div>
+		<div id="edit-menu-button-edit" class="edit-menu-icon"></div>
+	</div>
+	<a href="#" onclick="Toggle('edit-menu-expanded', 'edit-menu-collapsed')"><div id='edit-menu-collapsed'>
+	</div></a>
+</div>
+
+
+<!-- End test content -->
+
+<!-- End Page Content -->
+{% include 'workouts/common/wrapper_footer.html' %}

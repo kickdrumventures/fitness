@@ -1,0 +1,29 @@
+{% include 'workouts/common/wrapper_header.html' %}
+{% include 'workouts/common/header.html' %}
+
+<!-- Begin Page Content -->
+<div class="row">
+	<div class="span4 offset4">
+		<h3 class="centered_header">Login</h3>
+		<form action="/accounts/auth/" method="POST">{% csrf_token %}
+			<div class="form_field_wrapper">
+				<label for="username">Username</label>
+				<input type="text" name="username" value="" id="username" />
+			</div>
+			<div class="form_field_wrapper">
+				<label for="password">Password</label>
+				<input type="password" name="password" value="" id="password" />
+			</div>
+			<div class="form_center"><input type="submit" value="Login" /></div>
+		</form>
+		<div id="login_box_subtext">
+			<p>Not already a member? <a href="/accounts/register/">Sign up now</a></p>
+		</div>
+	</div>
+</div>
+	
+
+
+<!-- End Page Content -->
+
+{% include 'workouts/common/wrapper_footer.html' %}

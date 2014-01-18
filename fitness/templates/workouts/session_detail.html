@@ -1,0 +1,93 @@
+{% include 'workouts/common/wrapper_header.html' %}
+{% include 'workouts/common/header.html' %}
+{% load staticfiles %}
+
+<!-- Begin Page Content -->
+
+<!-- jquery Content -->
+<script type="text/javascript">
+$(function() {
+    var availableTags = 
+    {% autoescape off %}
+    {{exercise_library}}
+    {% endautoescape %}
+    ;
+
+    $( "#id_exercise" ).autocomplete({
+      source: availableTags
+    });
+  });
+
+
+ 
+
+
+
+
+</script>
+<!-- End jquery Content -->
+
+
+{% if session %}
+	<h3>{{session}}</h3>
+	<p><strong>Location:</strong> {{session.location}}</p>
+	<p><strong>Date:</strong> {{session.date}}</p>
+	<p><strong>Description:</strong> {{session.description}}</p>
+	
+	<div class="row">
+		<div class="span4">
+			<h3 class="centered_header">Exercise Details</h3>
+			<form action="" method="post">{% csrf_token %}
+				<div class="form_field_wrapper_hidden">
+		            {{ form.user_errors}}
+		            {{ form.user }}
+		        </div>
+		        <div class="form_field_wrapper_hidden">
+		            {{ form.session_errors}}
+		            {{ form.session }}
+		        </div>
+		        <div class="form_field_wrapper_hidden">
+		            {{ form.weight_resistance_errors}}
+		            {{ form.weight_resistance }}
+		        </div>
+		        <div class="form_field_wrapper_hidden">
+		            {{ form.reps_mins_errors}}
+		            {{ form.reps_mins }}
+		        </div>
+		        <div class="ui-widget">
+			        <div class="form_field_wrapper">
+			            {{ form.exercise_errors}}
+			            <label for="id_exercise">Add Exercise: </label>
+			            <input id="id_exercise">
+			        </div>
+		        </div>	  		
+			  		<!--<input type="submit" style="position: absolute; left: -9999px"/>-->
+			  		<div class="form_center"><input type="submit" value="Submit"/></div>
+				
+			</form>
+		</div>
+	</div>
+
+	{% for exercise_name in sets_by_exercise %}
+		<p><strong>{{ exercise_name }}: </strong>
+		{% for set_item in sets_by_exercise|lookup:exercise_name %}
+			 
+			{{set_item.1}}x{{set_item.0}}
+
+		{% endfor %}	
+		<a href="/workouts/sessions/{{session.id}}/add_set/"><img src="{% static 'fitness/images/circle-plus-purple.png' %}" alt="" /></a>
+		</p>
+	{% endfor %}
+
+	
+
+
+{% else %}
+	<h3>No Session</h3>
+{% endif %}
+
+
+
+<!-- End Page Content -->
+
+{% include 'workouts/common/wrapper_footer.html' %}

@@ -1,0 +1,35 @@
+{% include 'workouts/common/wrapper_header.html' %}
+{% include 'workouts/common/header.html' %}
+{% load staticfiles %}
+<!-- Begin Page Content -->
+
+
+
+{% if exercises_by_type %}
+	<h2>Exercises by Type <a href="/workouts/exercises/add"><img src="{% static 'fitness/images/circle-plus-purple.png' %}" alt="" /></a></h1>
+	{% for exercise_type in exercises_by_type %}
+		<h3>{{ exercise_type }}</h3>
+		<table class="table table-condensed table-hover">
+			<tr>
+				<th class="exercise_name">Name</th>
+				<th class="exercise_description">Description</th>
+			</tr>
+			{% for exercise in exercises_by_type|lookup:exercise_type %}
+			<tr>
+				<td><a href="/workouts/exercises/{{exercise.id}}/">{{exercise.name}}</a></td>
+				<td>{{exercise.description_short}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+
+	{% endfor %}
+
+{% else %}
+	<h1>No Exercises</h1>
+{% endif %}
+
+
+
+<!-- End Page Content -->
+
+{% include 'workouts/common/wrapper_footer.html' %}

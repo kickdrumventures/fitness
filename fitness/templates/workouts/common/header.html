@@ -1,0 +1,84 @@
+{% load staticfiles %}
+
+</head>	
+<body>
+	<!--<div id="wrapper">
+		<div id="main"> -->
+			<!--Replaces Header -->
+			<div class="navbar navbar-inverse navbar-fixed-top">
+		      <div class="navbar-inner">
+		        <div class="container">
+		          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </button>
+		          <a class="brand" href="/workouts">RepRecorder</a>
+		          <div class="nav-collapse collapse">
+		            <ul class="nav">
+		              <!--<li class="active"><a href="/workouts">Summary</a></li>-->
+		              <li><a href="/workouts">Summary</a></li>
+		              <li><a href="/workouts/sessions">Sessions</a></li>
+		              <li><a href="/workouts/exercises">Exercises</a></li>
+		              <li><a href="/workouts/weight">Weight Log</a></li>
+		              
+		              {% if user.is_authenticated %}
+		              <li class="dropdown">
+		                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.username}} <b class="caret"></b></a>
+		                <ul class="dropdown-menu">
+		                  <li><a href="#">Account Settings</a></li>
+		                  <li class="divider"></li>
+		                  <li><a href="/accounts/logout/">Signout</a></li>
+		                </ul>
+		              </li>
+		              {% endif %}
+
+		            </ul>
+		            {% if not user.is_authenticated %}
+		            <form action="/accounts/auth/" class="navbar-form pull-right" method="POST">{% csrf_token %}
+		              <input class="span2" type="text" placeholder="username" name="username" id="username" />
+		              <input class="span2" type="password" placeholder="password" name="password" id="password" />
+		              <button type="submit" class="btn">login</button>
+		            </form>
+		            {% endif %}
+		          </div><!--/.nav-collapse -->
+		        </div>
+		      </div>
+		    </div>
+
+			<!--Replaces Header -->
+
+
+
+<!-- Existing info -->
+<!--
+<div id="header">
+	<div id="header_wrapper">
+		<div id="logo">
+			<a href="/workouts"><img src="{% static 'fitness/images/logo.gif' %}" alt="Rep Recorder"/></a>
+
+		</div>
+		<div id="header_login_info">
+			{% if user.is_authenticated %}
+   				<p>welcome, {{ user.username }}<br/>
+    			(<a href="/accounts/logout/">logout</a>)</p>
+			{% endif %}
+		</div>
+	</div>
+	<div id="navigation">
+		<ul id="menu">
+			<li class="menu_item"><a href="/workouts">summary</a></li>
+			<li class="menu_spacer">&nbsp;</li>
+			<li class="menu_item"><a href="/workouts/sessions">session manager</a></li>
+			<li class="menu_spacer">&nbsp;</li>
+			<li class="menu_item"><a href="/workouts/exercises">exercise manager</a></li>
+			<li class="menu_spacer">&nbsp;</li>
+			<li class="menu_item"><a href="/workouts/weight">weight log</a></li>
+		</ul>
+	</div>
+
+</div>
+-->
+<!-- End existing header -->
+
+<div class="container">

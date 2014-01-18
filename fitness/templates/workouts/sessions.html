@@ -1,0 +1,57 @@
+{% include 'workouts/common/wrapper_header.html' %}
+{% include 'workouts/common/header.html' %}
+{% load staticfiles %}
+<!-- Begin Page Content -->
+
+<!-- jquery Content -->
+<script type="text/javascript">
+$(function () {
+        $('#session_graph').highcharts(
+        	{% autoescape off %}
+        	{{session_graph}}
+        	{% endautoescape %}
+        	);
+    });
+    
+</script>
+<!-- End jquery Content -->
+{% if all_sessions %}
+	<div id="session_graph"></div>
+{% endif %}
+
+<h2>Sessions <a href="/workouts/sessions/add"><img src="{% static 'fitness/images/circle-plus-purple.png' %}" alt="Add" /></a></h2>
+
+{% if all_sessions %}
+	
+	{% for session in all_sessions %}
+			<div class="line-item-wrapper">
+				<div class="line-item"><a href="/workouts/sessions/{{session.id}}/">{{ session.date.date }}</a>
+				</div>
+
+
+				<!--Test content -->
+				<div id='edit-menu-wrapper'>
+					<div id='edit-menu-expanded-{{forloop.counter}}' class='edit-menu-expanded'>
+						<a onclick="Toggle('edit-menu-expanded-{{forloop.counter}}', 'edit-menu-collapsed-{{forloop.counter}}')"><div id="edit-menu-button-contract" class="edit-menu-icon"></div></a>
+						<a href=""><div id="edit-menu-button-delete" class="edit-menu-icon"></div></a>
+						<div id="edit-menu-button-edit" class="edit-menu-icon"></div>
+					</div>
+					<a onclick="Toggle('edit-menu-expanded-{{forloop.counter}}', 'edit-menu-collapsed-{{forloop.counter}}')"><div id='edit-menu-collapsed-{{forloop.counter}}' class='edit-menu-collapsed'>
+					</div></a>
+				</div>
+			</div>
+	<!-- end test content -->
+
+
+
+	{% endfor %}
+
+
+{% else %}
+	<h3>No workout sessions recorded.</h3>
+
+{% endif %}
+
+<!-- End Page Content -->
+
+{% include 'workouts/common/wrapper_footer.html' %}

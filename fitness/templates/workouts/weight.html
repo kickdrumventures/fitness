@@ -1,0 +1,60 @@
+{% include 'workouts/common/wrapper_header.html' %}
+{% include 'workouts/common/header.html' %}
+{% load staticfiles %}
+<!-- Begin Page Content -->
+
+<!-- jquery Content -->
+<script type="text/javascript">
+
+$(function () {
+        $('#weight_graph').highcharts(
+            {% autoescape off %}
+            {{graph_dict}}
+            {% endautoescape %}
+        );
+    });
+
+    
+
+</script>
+<!-- End jquery Content -->
+
+<div id="weight_graph"></div>
+
+<div class="row">
+    <div class="span6">
+        <!-- Display the weight entries -->
+        {% if recent_weight_data %}
+        	<h2>Weight Entries <a href="/workouts/weight/add"><img src="{% static 'fitness/images/circle-plus-purple.png' %}" alt="" /></a></h2> 
+            
+        	{% for weight_entry in recent_weight_data %}
+        		<p><strong>{{weight_entry.0}}:</strong> {{weight_entry.1}} lbs</p>
+        	{% endfor %}
+
+
+        {% else %}
+        	<h2>No weight data recorded. <a href="/workouts/weight/add_target"><img src="{% static 'fitness/images/circle-plus-purple.png' %}" alt="" /></a></h2>
+
+        {% endif %}
+    </div>
+
+    <div class="span6">
+        <!-- Display the target weight entries -->
+        {% if recent_target_weight_data %}
+            <h2>Target Weights <a href="/workouts/weight/add_target"><img src="{% static 'fitness/images/circle-plus-purple.png' %}" alt="" /></a></h2> 
+            
+            {% for target_weight_entry in recent_target_weight_data %}
+                <p><strong>{{target_weight_entry.0}}:</strong> {{target_weight_entry.1}} lbs</p>
+            {% endfor %}
+
+
+        {% else %}
+            <h2>No target weight data recorded. <a href="/workouts/weight/add_target"><img src="{% static 'fitness/images/circle-plus-purple.png' %}" alt="" /></a></h2>
+
+        {% endif %}
+    </div>
+</div>
+
+<!-- End Page Content -->
+
+{% include 'workouts/common/wrapper_footer.html' %}

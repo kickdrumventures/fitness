@@ -1,0 +1,41 @@
+{% include 'workouts/common/wrapper_header.html' %}
+{% include 'workouts/common/header.html' %}
+{% load staticfiles %}
+<!-- Begin Page Content -->
+
+<!-- jquery Content -->
+<script type="text/javascript">
+$(function () {
+    $('#exercise_detail_chart').highcharts(
+
+        {% autoescape off %}
+        {{exercise_detail_graph}}
+        {% endautoescape %}
+
+        );
+    
+});
+
+</script>
+<!-- End jquery Content -->
+
+<div id="exercise_detail_chart"></div>
+
+{% if exercise %}
+	<h1>{{ exercise }}</h1>
+	{% for set in all_sets %}
+		<br/>{{ set }}
+		<br/>{{ weight_rep_data }}
+	{% endfor %}
+	
+
+{% else %}
+	<h1>Exercise does not exist</h1>
+{% endif %}
+
+
+
+
+<!-- End Page Content -->
+
+{% include 'workouts/common/wrapper_footer.html' %}

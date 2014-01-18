@@ -1,0 +1,274 @@
+
+body {
+	color: #666666;
+	padding-top: 65px;
+}
+
+
+h1 {color:#4e4e4e;
+	margin: 50px 0px 0px 0px;
+	font-size:20px;
+	}
+
+h2 {color:purple;
+	font-size: 18px;
+}
+
+a {
+	text-decoration: none;
+	color: #4e4e4e;
+}
+
+table {
+	
+}
+
+/*
+td {
+	border: solid 1px #666;
+	margin: 0px;
+}
+*/
+
+a:hover {
+	text-decoration: underline;
+	color: #4e4e4e;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #4e4e4e;
+}
+
+ul {
+	margin-top: 0px;
+	
+}
+
+.span4 {
+	background-color: #eeeeee;
+	-webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+.centered_header {
+	text-align: center;
+}
+
+#wrapper {
+	width: auto;
+}
+
+#main {
+	width: 750px;
+	margin: auto;
+}
+
+#content {
+	clear:both;
+}
+
+#menu {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#menu li {
+	display: block;
+	float: left;
+	font: Arial;
+	font-variant: small-caps;
+	font-size: 26px;
+}
+
+#menu li.menu_item a {
+	text-decoration: none;
+	color: #4e4e4e;
+}
+
+#menu li.menu_item a:hover {
+	text-decoration: underline;
+	color: #4e4e4e;
+}
+
+#menu li.menu_item a:visited {
+	text-decoration: none;
+	color: #4e4e4e;
+}
+
+
+#menu li.menu_spacer {
+	width: 50px;
+
+	}
+
+th {
+	text-align: left;
+}
+
+th.exercise_name {
+	width:280px;
+}
+
+th.exercise_description {
+	width:350px;
+}
+
+
+/* SUMMARY PAGE */
+div.summary_widget {
+	background-color: #999;
+	width: 140px;
+	height: 140px;
+	float: left;
+	margin: 5px;
+	text-align: center;
+	padding: 6px;
+}
+
+div.widget_box {
+	clear:both;
+}
+
+div.widget_box p {
+	padding: 0;
+	margin:0;
+}
+
+p.widget_header {
+	font-size: 14px;
+	font-weight: bold;
+	color: #EEE;
+}
+
+p.widget_subtext {
+	font-size: 9px;
+}
+
+/* WEIGHT PAGE */
+div#weight_graph{
+	height: 400px;
+	margin-top: 50px;
+	clear:both;
+}
+
+div#session_graph{
+	height: 400px;
+	margin-top: 50px;
+	clear:both;
+}
+
+/* COMMON */
+div.bumper {
+	clear:both;
+}
+
+/* FORMS */
+.form_field_wrapper {
+	text-align: center;
+}
+
+.form_field_wrapper_hidden {
+	display: none;
+}
+
+.form_center {
+	text-align: center;
+}
+
+
+/* LOGIN */
+div#login_box_subtext {
+	text-align: center;
+}
+
+/*HEADER STUFF*/
+div#logo {
+	width:319px;
+	height:46px;
+	float: left;
+}
+
+div#header_login_info {
+	width:150px;
+	height: 46px;
+	float: right;
+	margin-right: 10px;
+}
+
+div#header_login_info p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+div#header_wrapper {
+	width: auto;
+	height: 46px;
+}
+
+/* EDIT MENU */
+div.line-item {
+	float: left;
+}
+
+div#edit-menu-wrapper {
+	float: left;
+}
+
+div.line-item-wrapper {
+	clear:both;
+}
+
+div.edit-menu-expanded {
+	width: 59px;
+	height: 20px;
+	background-image: url('../images/edit-menu-expanded.png');
+	background-repeat: no-repeat;
+	display: none;
+}
+
+div.edit-menu-collapsed {
+	width: 20px;
+	height: 20px;
+	background-image: url('../images/edit-menu-collapsed.png');
+	background-repeat: no-repeat;
+	display: block;
+}
+
+div.edit-menu-collapsed:hover {
+	background-position: -20px 0px;
+}
+div.edit-menu-icon {
+	width: 18px;
+	height: 20px;
+	margin-right: 1px;
+	float: left;
+	background-repeat: no-repeat;
+}
+
+div#edit-menu-button-contract {
+	background-image: url('../images/edit-menu-collapsed.png');
+	margin-right: 1px;
+}
+
+div#edit-menu-button-contract:hover {
+	background-position: -20px 0px;
+}
+
+div#edit-menu-button-delete {
+	background-image: url('../images/circle-x.png');
+}
+
+div#edit-menu-button-delete:hover {
+	background-position: -18px 0px;
+}
+
+div#edit-menu-button-edit {
+	background-image: url('../images/circle-edit.png');
+}
+
+div#edit-menu-button-edit:hover {
+	background-position: -18px 0px;	
+	}

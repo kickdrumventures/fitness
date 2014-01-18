@@ -1,0 +1,60 @@
+{% include 'workouts/common/wrapper_header.html' %}
+{% include 'workouts/common/header.html' %}
+{% load staticfiles %}
+
+<!-- Begin Page Content -->
+
+{% if session %}
+    <h3>{{session}}</h3>
+    <p><strong>Location:</strong> {{session.location}}</p>
+    <p><strong>Date:</strong> {{session.date}}</p>
+    <p><strong>Description:</strong> {{session.description}}</p>
+    
+    <div class="row">
+        <div class="span4 offset4">
+            <h3 class="centered_header">Add Set</h3>
+            <form action="" method="post">{% csrf_token %}
+                {{ form.non_field_errors }}
+                
+                <div class="form_field_wrapper_hidden">
+                    {{ form.user_errors}}
+                    {{ form.user }}
+                </div>
+                <div class="form_field_wrapper_hidden">
+                    {{ form.session_errors}}
+                    {{ form.session }}
+                </div>
+                <div class="form_field_wrapper">
+                    {{ form.exercise_errors}}
+                    <label for="id_exercise">Exercise</label>
+                    {{ form.exercise }}
+                </div>
+                 <div class="form_field_wrapper">
+                    {{ form.weight_resistance_errors}}
+                    <label for="id_weight_resistance">Weight</label>
+                    {{ form.weight_resistance }}
+                </div>
+                <div class="form_field_wrapper">
+                    {{ form.reps_mins_errors}}
+                    <label for="id_reps_mins">Reps</label>
+                    {{ form.reps_mins }}
+                </div>
+               
+
+            <div class="form_center"><input type="submit" value="Submit"/></div>
+            </form>
+        </div>
+    </div>
+
+    
+
+
+{% else %}
+    <h3>No Session</h3>
+{% endif %}
+
+
+
+<!-- End Page Content -->
+
+{% include 'workouts/common/wrapper_footer.html' %}
